@@ -1,28 +1,26 @@
-<!doctype html>
+<?php require_once('../../private/initialize.php'); ?>
 
-<html lang="en">
-    <head>
-        <title>GBI</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" media="all" href="../stylesheets/staff.css" />
-    </head>
+<?php $page_title = 'Staff Menu'; ?>
 
-    <body>
-        <header>
-            <h1>GBI Staff Area</h1>
-        </header>
-
-        <navigation>
-            <ul>
-                <li><a href="index.php">Menu</a></li>
-            </ul>
-        </navigation>
-
+<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<!--  
+    This include path used "../../private/shared/staff_header.php" but using constants in the main 
+    initialize.php we can shorten it to this way. Cool trick. Same with footer. Can't do it with the require
+    one at the top because that's where those constants are initialized.
+-->
         <div id="content">
-        </div>
+            <div id="main-menu">
+                <h2>Main Menu</h2>
+                <ul>
+                    <li><a href="<?php echo url_for('/staff/subjects/index.php'); ?>">Subjects</a></li>
+                    <li><a href="<?php echo url_for('/staff/pages/index.php'); ?>">Pages</a></li>
+                </ul>
+            </div>
 
-        <footer>
-            &copy; <?php echo date('Y'); ?> Globe Bank
-        </footer>
-    </body>
-</html>
+        </div>
+<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+
+<!-- This had a basic website outline that we cut and placed in 'include' files and now we can add it to 
+every page without retyping it all. PHP is great that way -->
+
+
